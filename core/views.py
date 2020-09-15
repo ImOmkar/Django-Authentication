@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
+from .forms import UserRegistrationForm
 # Create your views here.
 
 
@@ -12,7 +12,7 @@ def frontpage(request):
 def signup(request):
     if request.method == "POST":
 
-        form = UserCreationForm(request.POST)
+        form = UserRegistrationForm(request.POST)
 
         if form.is_valid():
             user = form.save()
@@ -21,7 +21,7 @@ def signup(request):
             return redirect('frontpage')
     
     else:
-        form = UserCreationForm()
+        form = UserRegistrationForm()
 
     context = {
         'form': form

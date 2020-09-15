@@ -18,11 +18,13 @@ from django.urls import path, include
 from django.contrib.auth import views
 from core.views import frontpage, signup
 
+from core.forms import UserLoginForm
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('signup/', signup, name="signup"),
-    path('login/', views.LoginView.as_view(template_name="login.html"), name="login"),
+    path('login/', views.LoginView.as_view(template_name="login.html", authentication_form=UserLoginForm), name="login"),
     path('logout/', views.LogoutView.as_view(), name="logout")
 
 ]

@@ -1,24 +1,105 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Bulma!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+      *{
+        font-family: 'Quicksand', sans-serif; 
+      }
+    </style>
   </head>
   <body>
-  
-    <div class="container mt-5">
+    <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="{% url 'frontpage' %}">
+          <img src="https://uxwing.com/wp-content/themes/uxwing/download/10-brands-and-social-media/django.png" width="30px" height="200px">
+        </a>
 
-        <form method="POST" action=".">
-            {% csrf_token %}
-                
-            {{ form.as_p }}
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
 
-            <button class="button is-success" type="submit">Login</button>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a href="{% url 'frontpage' %}" class="navbar-item">
+            Home
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">     
+            {% if request.user.is_authenticated %}
+              <a class="has-text-light mr-2">
+                Welcome, "{{ user.username }}"
+              </a>
+              <div class="buttons">
+                <a href="{% url 'logout' %}" class="button is-danger">
+                  <strong>Logout</strong>
+                </a>
+                {% else %}
+                <a href="{% url 'signup' %}" class="button is-success mr-2">
+                  <strong>Sign up</strong>
+                </a>
+                <a href="{% url 'login' %}" class="button is-light">
+                  Log in
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      </nav>
+
+    <!--new form-->
+    <section class="hero is-dark is-fullheight">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+
+              <form method="POST" action="." class="box">
+                {% csrf_token %}
+
+                <div class="field">
+                  <label for="" class="label">Username</label>
+                  <div class="control has-icons-left">
+                    {{ form.username }}
+                    <span class="icon is-small is-left">
+                      <i class="fa fa-user"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="" class="label">Password</label>
+                  <div class="control has-icons-left">
+                    {{ form.password }}
+                    <span class="icon is-small is-left">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <button class="button is-success" type="submit">
+                    Login
+                  </button>
+                </div>
+              </form>
+              
             </div>
-        </form>
-    </div> 
-
-  </body>
+          </div>
+        </div>
+      </div>
+    </section>
+ </body>
 </html>
