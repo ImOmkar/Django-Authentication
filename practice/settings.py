@@ -130,9 +130,9 @@ STATIC_URL = '/static/'
 
 
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'apikey' 
-EMAIL_HOST_PASSWORD = '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' 
+EMAIL_HOST_USER = 'apikey' #keep this as it is
+EMAIL_HOST_PASSWORD = 'your_sendgrid_api_key' 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-DEFAULT_FROM_EMAIL = 'fory211196@gmail.com' 
+DEFAULT_FROM_EMAIL = 'your_sendgrid_email_address' 
