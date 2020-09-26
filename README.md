@@ -10,4 +10,7 @@ This repository contains code for Django Authentication(Signup, Login, Logout). 
 # Logout Page!
 ![Logout Page](https://res.cloudinary.com/dwltrduan/image/upload/v1600618012/Screenshot_313_mzdlef.png)
 
+# Password Reset Page!
+![Password Reset Page](https://res.cloudinary.com/dwltrduan/image/upload/v1601108529/R_p4ecru.jpg)
+
 
