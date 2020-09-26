@@ -1,5 +1,5 @@
 # Django-Authentication
-This repository contains code for Django Authentication(Signup, Login, Logout). I've used django built-in CBV Auth(LoginView, LogoutView).
+This repository contains code for Django Authentication(Signup, Login, Logout) and Password Reset Email(SendGrid SMTP). I've used django built-in CBV Auth(LoginView, LogoutView), and ResetPassword(PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView)
 
 # Signup Page!
 ![Signup Page](https://res.cloudinary.com/dwltrduan/image/upload/v1600618011/Screenshot_311_kotfl3.png)
