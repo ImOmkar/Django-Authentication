@@ -64,10 +64,12 @@
       <div class="hero-body">
         <div class="container">
           <div class="columns is-centered">
+          
             <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-
               <form method="POST" action="." class="box">
                 {% csrf_token %}
+
+                <h1 class="has-text-centered mb-5 is-size-3">Login</h1>
 
                 <div class="field">
                   <label for="" class="label">Username</label>
@@ -87,12 +89,19 @@
                       <i class="fa fa-lock"></i>
                     </span>
                   </div>
+                </div>  
+
+                <div class="field">
+                  <a href="{% url 'password_reset' %}">Forgot password ?</a> 
                 </div>
 
                 <div class="field">
                   <button class="button is-success" type="submit">
                     Login
                   </button>
+                </div>
+                <div class="field">
+                  Need account ? <a href="{% url 'signup' %}">Signup</a> 
                 </div>
               </form>
               
